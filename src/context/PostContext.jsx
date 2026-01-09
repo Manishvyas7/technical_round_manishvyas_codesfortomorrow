@@ -17,11 +17,9 @@ export const PostProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const postsPerPage = 6;
 
-  // Fetch posts from API
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        // Show loading for 5 seconds
         await new Promise(resolve => setTimeout(resolve, 5000));
         
         const response = await fetch('https://jsonplaceholder.typicode.com/posts');
@@ -38,25 +36,21 @@ export const PostProvider = ({ children }) => {
     fetchPosts();
   }, []);
 
-  // Calculate pagination values
   const totalPages = Math.ceil(displayedPosts.length / postsPerPage);
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = displayedPosts.slice(indexOfFirstPost, indexOfLastPost);
 
-  // Handle post deletion
   const deletePost = (postId) => {
     const updatedPosts = displayedPosts.filter(post => post.id !== postId);
     setDisplayedPosts(updatedPosts);
     
-    // Adjust current page if needed
     const newTotalPages = Math.ceil(updatedPosts.length / postsPerPage);
     if (currentPage > newTotalPages && newTotalPages > 0) {
       setCurrentPage(newTotalPages);
     }
   };
 
-  // Handle page change
   const goToPage = (pageNumber) => {
     setCurrentPage(pageNumber);
   };

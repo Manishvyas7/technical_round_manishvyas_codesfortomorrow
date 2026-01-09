@@ -14,13 +14,11 @@ const AppContent = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-10">
           <h1 className="text-4xl font-bold text-gray-800 mb-2">Posts Gallery</h1>
-          <p className="text-gray-600">Browse through our collection of posts</p>
+          <p className="text-gray-600">Browse through our collection of postsv</p>
         </div>
-
-        {/* Post List */}
+        
         {currentPosts.length > 0 ? (
           <>
             <PostList />

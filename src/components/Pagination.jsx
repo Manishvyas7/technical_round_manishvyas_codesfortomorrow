@@ -14,14 +14,11 @@ const Pagination = () => {
         pages.push(i);
       }
     } else {
-      // Always show first page
       pages.push(1);
       
-      // Calculate range around current page
       let startPage = Math.max(2, currentPage - 1);
       let endPage = Math.min(totalPages - 1, currentPage + 1);
       
-      // Add ellipsis and pages
       if (startPage > 2) {
         pages.push('...');
       }
@@ -34,7 +31,6 @@ const Pagination = () => {
         pages.push('...');
       }
       
-      // Always show last page
       pages.push(totalPages);
     }
     
@@ -45,7 +41,6 @@ const Pagination = () => {
 
   return (
     <div className="flex items-center justify-center space-x-2 mt-8">
-      {/* Previous Button */}
       <button
         onClick={goToPreviousPage}
         disabled={currentPage === 1}
@@ -58,7 +53,6 @@ const Pagination = () => {
         Previous
       </button>
 
-      {/* Page Numbers */}
       <div className="flex space-x-1">
         {pageNumbers.map((page, index) => (
           <button
@@ -78,7 +72,6 @@ const Pagination = () => {
         ))}
       </div>
 
-      {/* Next Button */}
       <button
         onClick={goToNextPage}
         disabled={currentPage === totalPages}

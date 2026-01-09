@@ -3,7 +3,6 @@ import React from 'react';
 const Card = ({ post, onDelete }) => {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 relative hover:shadow-xl transition-shadow duration-300">
-      {/* Delete Button */}
       <button
         onClick={() => onDelete(post.id)}
         className="absolute top-3 right-3 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 transition-colors duration-200"
@@ -25,22 +24,19 @@ const Card = ({ post, onDelete }) => {
         </svg>
       </button>
 
-      {/* Post ID Badge */}
       <div className="mb-3">
         <span className="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-1 rounded">
           Post #{post.id}
         </span>
       </div>
 
-      {/* Post Title */}
       <h3 className="text-lg font-bold text-gray-800 mb-3 pr-6 capitalize line-clamp-2">
         {post.title}
       </h3>
 
-      {/* Post Body */}
       <p className="text-gray-600 text-sm line-clamp-4">
         {post.body}
-      </p>
+        </p>
     </div>
   );
 };
